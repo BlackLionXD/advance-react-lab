@@ -3,17 +3,24 @@ import './App.css';
 
 const data = [
   {
-    id: '1',
+    id: 1,
     name: 'Ibrahim',
     position: 'Software Developer'
   },
   {
-    id: '2',
+    id: 2,
     name: 'Firaol',
-    position: 'Software Developer'
-  },
+    position: 'Mechanical Engineer'
+  }
 ]
+
 function App() {
+  const newData = data.map( result =>(
+    {
+      id: data.id,
+      title: `${data.name} is a ${data.position}`
+    }
+  ))
   return (
     <div className="App">
       <header className="App-header">
@@ -29,19 +36,29 @@ function App() {
         >
           Learn React
         </a> */}
-
-        <ul>
-          {
-            data.map( employee =>(
-            
-              <li key={employee.id}>
-                  {employee.name} - {employee.position}
-             
+      <ul>
+        {
+          data.map( (result) => (
+              <li key={result.id}>
+              {result.name} - { result.position}
               </li>
-            
-            ))
-          }
-        </ul>
+            )
+          )
+        }
+
+      </ul>
+
+      <ol>
+        {
+          newData.map( (result)=>(
+            <li key={result.id}>
+              {result.title}
+            </li>
+          ))
+        }
+      </ol>
+    
+
 
       </header>
 
