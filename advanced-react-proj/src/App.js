@@ -17,10 +17,11 @@ const data = [
 function App() {
   const newData = data.map( result =>(
     {
-      id: data.id,
-      title: `${data.name} is a ${data.position}`
+      id: result.id,
+      title: `${result.name} is a ${result.position}`
     }
   ))
+  console.log(newData)
   return (
     <div className="App">
       <header className="App-header">
