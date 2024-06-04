@@ -45,8 +45,13 @@ const rowData = [
     name: 'pqr',
     price: 78
   }
-]
+];
+const sortedFruits = []
+const fruits = ['pinapple', 'banana', 'mango', 'apple','orange','papaya']
 const filteredArray = rowData.filter( obj => obj.price>50);
+const sortedArray = [...array].sort((a, b) => a.localeCompare(b));
+console.log()
+
 console.log(filteredArray)
 function App() {
   const newData = data.map( result =>(
@@ -93,7 +98,15 @@ function App() {
         }
       </ol>
     
-  
+        <ul>
+          {
+            sortedFruits.map( (fruit,index)=>(
+              <li key={index}>{fruit}</li>
+            ))
+          }
+        </ul>
+
+        <button onClick={sortFruit}> Sort the fruit</button>
 
       </header>
 
