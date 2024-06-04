@@ -13,7 +13,41 @@ const data = [
     position: 'Mechanical Engineer'
   }
 ]
-
+// filtering an array
+const rowData = [
+  {
+    id: 1,
+    name: 'abc',
+    price: 34
+  },
+  {
+    id: 2,
+    name: 'def',
+    price: 36
+  },
+  {
+    id: 3,
+    name: 'ghi',
+    price: 7
+  },
+  {
+    id: 4,
+    name: 'jkl',
+    price: 88
+  },
+  {
+    id: 5,
+    name: 'mno',
+    price: 40
+  },
+  {
+    id: 6,
+    name: 'pqr',
+    price: 78
+  }
+]
+const filteredArray = rowData.filter( obj => obj.price>50);
+console.log(filteredArray)
 function App() {
   const newData = data.map( result =>(
     {
@@ -51,19 +85,31 @@ function App() {
 
       <ol>
         {
-          newData.map( (result)=>(
+          filteredArray.map( (result)=>(
             <li key={result.id}>
-              {result.title}
+              {result.name}
             </li>
           ))
         }
       </ol>
     
-
+  
 
       </header>
 
+      <div className='container bg-primary'>
+          <div className='row'>
+              <div className='col-12 col-md-8 col-lg-4'>
+                col 1
+              </div>
+              <div className='col-12 col-md-4 col-lg-8'>
+                col 2
+              </div>
+          </div>
+      </div>
+
     </div>
+
   );
 }
 
