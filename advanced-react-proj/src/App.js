@@ -1,6 +1,6 @@
 import './App.css';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
  
 const data = [
   {
@@ -68,6 +68,7 @@ function App() {
       title: `${result.name} is a ${result.position}`
     }
   ))
+  const [inputState, setInputState] = useState('');
   console.log(newData)
   return (
     <div className="App">
@@ -128,11 +129,18 @@ function App() {
               </div>
           </div>
       </div>
-
+          <h2>uncontrolled input</h2>
           <form onSubmit={handleInput}>
               <input ref={inputRef} type='text'/>
               <button type='submit'>Submit</button>
           </form>
+
+          <h2>controlled input</h2>
+          <form>
+              <input type='text' value={inputState}  onChange={(e) => setInputState(e.target.value)}/>
+          </form>
+
+           <h3>{inputState}</h3>
    
 
     </div>
