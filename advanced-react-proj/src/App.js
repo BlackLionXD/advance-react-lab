@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { useRef } from 'react';
+ 
 const data = [
   {
     id: 1,
@@ -49,11 +50,18 @@ const rowData = [
 const sortedFruits = []
 const fruits = ['pinapple', 'banana', 'mango', 'apple','orange','papaya']
 const filteredArray = rowData.filter( obj => obj.price>50);
-const sortedArray = [...array].sort((a, b) => a.localeCompare(b));
+// const sortedArray = [...array].sort((a, b) => a.localeCompare(b));
+
 console.log()
 
 console.log(filteredArray)
 function App() {
+  const inputRef = useRef(null);
+  const handleInput = (e) =>{
+    e.preventDefault();
+    console.log(inputRef.current.value);
+  }
+
   const newData = data.map( result =>(
     {
       id: result.id,
@@ -106,7 +114,7 @@ function App() {
           }
         </ul>
 
-        <button onClick={sortFruit}> Sort the fruit</button>
+        <button > Sort the fruit</button>
 
       </header>
 
@@ -120,6 +128,12 @@ function App() {
               </div>
           </div>
       </div>
+
+          <form onSubmit={handleInput}>
+              <input ref={inputRef} type='text'/>
+              <button type='submit'>Submit</button>
+          </form>
+   
 
     </div>
 
